@@ -1,3 +1,5 @@
+require 'nokogiri'
+require 'open-uri'
 class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
