@@ -1,0 +1,11 @@
+<h3><%= site.name %></h3>
+<% if site.nokogiri_doc(@search) %>
+	<% site.nokogiri_doc(@search).css(".item").each do |item| %>
+		<%= item.at_css(".prodLink").text if item.at_css(".prodLink") %>-
+		<%= item.at_css(".camelPrice").text[/\$[0-9\.]+/] if item.at_css(".camelPrice")%><br/>
+	<% end %>
+	<% site.nokogiri_doc(@search).css(".wrapper").each do |item| %>
+		<%= item.at_css(".fk-anchor-link").text if item.at_css(".fk-anchor-link") %>-
+		<%= item.at_css(".final-price").text if item.at_css(".final-price")%><br/>
+	<% end %>
+<% end %>
